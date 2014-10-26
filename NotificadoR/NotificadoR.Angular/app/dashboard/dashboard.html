@@ -1,0 +1,35 @@
+﻿<section id="dashboard-view" class="mainbar" data-ng-controller="dashboard as vm">
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="widget wviolet">
+                        <div data-cc-widget-header="" title="Documents"
+                             data-allow-collapse="true"></div>
+                        <div class="widget-content text-info">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Abstract</th>
+                                        <th>Complete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="t in vm.toDoItems">
+                                        <td>{{t.text}}</td>
+                                        <td>{{t.abstract}}</td>
+                                        <td>{{t.complete}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="widget-foot">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
