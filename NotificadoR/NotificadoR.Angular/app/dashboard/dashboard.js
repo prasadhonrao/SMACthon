@@ -13,6 +13,11 @@
         var vm = this;
         vm.toDoItems = [];
         vm.title = 'Dashboard';
+        vm.documentTitle = "";
+        vm.documentAbstract = "";
+        var client = new WindowsAzure.MobileServiceClient('https://notificador.azure-mobile.net/', 'bbiIcbESnkRJqRxaMlppCYpoxrHQbm31');
+        var todoItemTable = client.getTable('todoitem');
+        vm.submit = submit;
 
         chat.client.push = function (message) {
             getToDoItems();
@@ -39,6 +44,14 @@
                 //chat.server.send('Updating clients');
                 return vm.toDoItems = data;
             });
+        }
+        
+        function submit() {
+            //console.log(vm.title + vm.abstract);
+            log(vm.documentTitle + vm.documentAbstract);
+            todoItemTable.insert({ text: vm.documentTitle, complete: false });
+            activate();
+            return;
         }
 
     }
