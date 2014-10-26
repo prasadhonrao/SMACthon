@@ -5,6 +5,7 @@
         <title>NotificadoR</title>
         <link href="content/styles.css" rel="stylesheet" />
         <link href="content/toastr.min.css" rel="stylesheet" />
+        <link href="content/bootstrap-theme.min.css" rel="stylesheet" />
         <meta name='viewport' content='width=device-width' />
         <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"></script><![endif]-->
     </head>
@@ -16,7 +17,10 @@
 
                     <form id='add-item'>
                         <button type='submit'>Add</button>
-                        <div><input type='text' id='new-item-text' placeholder='Enter new task' /></div>
+                        <div>
+                            <input type='text' id='new-item-title' placeholder='Title' />
+                            <input type='text' id='new-item-abstract' placeholder='Abstract' />
+                        </div>
                     </form>
                 </header>
 
@@ -27,6 +31,7 @@
 
 
         <script src="Scripts/jquery-2.1.1.min.js"></script>
+        <script src="Scripts/bootstrap.min.js"></script>
         <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.2.min.js'></script>
         <script src="Scripts/jquery.signalR-2.1.2.min.js"></script>
         <script src="Scripts/toastr.min.js"></script>

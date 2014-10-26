@@ -43,10 +43,12 @@ function getTodoItemId(formElement) {
 
 // Handle insert
 $('#add-item').submit(function (evt) {
-    var textbox = $('#new-item-text'),
-        itemText = textbox.val();
-    if (itemText !== '') {
-        todoItemTable.insert({ text: itemText, complete: false }).then(refreshTodoItems, handleError);
+    var titletextbox = $('#new-item-title'),
+        titleText = titletextbox.val();
+    var abstracttextbox = $('#new-item-abstract'),
+        abstractText = abstracttextbox.val();
+    if (titleText !== '') {
+        todoItemTable.insert({ text: titleText, abstract: abstractText, complete: false }).then(refreshTodoItems, handleError);
     }
     textbox.val('').focus();
     evt.preventDefault();
