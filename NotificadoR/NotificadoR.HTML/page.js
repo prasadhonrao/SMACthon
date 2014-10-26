@@ -1,12 +1,3 @@
-//$(function() {
-// This MobileServiceClient has been configured to communicate with your local
-// test project for debugging purposes.
-//var client = new WindowsAzure.MobileServiceClient(
-//    "http://localhost:51024"
-//);
-
-// This MobileServiceClient has been configured to communicate with your Mobile Service's url
-// and application key. You're all set to start working with your Mobile Service!
 var client = new WindowsAzure.MobileServiceClient(
     "https://notificador.azure-mobile.net/",
     "bbiIcbESnkRJqRxaMlppCYpoxrHQbm31"
@@ -18,7 +9,7 @@ $.connection.hub.start();
 
 chat.client.broadcastMessage = function (message) {
     refreshTodoItems();
-    toastr.info(message)
+    toastr.info(message);
 };
 
 
@@ -83,4 +74,3 @@ $(document.body).on('click', '.item-delete', function () {
 
 // On initial load, start by fetching the current data
 refreshTodoItems();
-//});

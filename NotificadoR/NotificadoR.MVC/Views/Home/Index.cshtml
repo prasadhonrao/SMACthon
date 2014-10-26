@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div id='wrapper'>
+    <article>
+        <header>
+            <h1 style="text-align:center">NotificadoR</h1>
+
+            <form id='add-item'>
+                <button type='submit'>Add</button>
+                <div>
+                    <input type='text' id='new-item-text' placeholder='Enter title' />
+                    <input type='text' id='new-item-abstract' placeholder='Enter abstract' />
+                </div>
+            </form>
+        </header>
+
+        <ul id='todo-items'></ul>
+        <p id='summary'>Loading...</p>
+    </article>
+
+    <footer>
+        <ul id='errorlog'></ul>
+    </footer>
+    <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js'></script>
+    <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.5.min.js'></script>
+    <script src="~/Scripts/Page.js"></script>
+</div>
