@@ -19,6 +19,5 @@
             var query = todoItemTable.where({ complete: false });
             return $q.when(query.read());
         }
-
     }
 })();
