@@ -1,4 +1,7 @@
-﻿(function () {
+﻿var chat = $.connection.notificadoRAngularHub;
+$.connection.hub.start();
+
+(function () {
     'use strict';
     var controllerId = 'dashboard';
     angular.module('app').controller(controllerId, ['common', 'datacontext', dashboard]);
@@ -10,6 +13,13 @@
         var vm = this;
         vm.toDoItems = [];
         vm.title = 'Dashboard';
+        
+        
+
+        chat.client.broadcastMessage = function (message) {
+            getToDoItems();
+            toastr.info(message);
+        };
 
         activate();
 
@@ -21,6 +31,7 @@
 
         function getToDoItems() {
             return datacontext.getToDoItems().then(function (data) {
+                chat.server.send('Updating clients');
                 return vm.toDoItems = data;
             });
         }

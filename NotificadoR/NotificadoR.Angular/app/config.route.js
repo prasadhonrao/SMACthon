@@ -29,6 +29,17 @@
                         content: '<i class="fa fa-dashboard"></i> Dashboard'
                     }
                 }
+            },
+            {
+                url: '/admin',
+                config: {
+                    templateUrl: 'app/admin/admin.html',
+                    title: 'admin',
+                    settings: {
+                        nav: 2,
+                        content: '<i class="fa fa-lock"></i> Admin'
+                    }
+                }
             }
         ];
     }
