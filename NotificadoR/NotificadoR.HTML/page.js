@@ -2,6 +2,14 @@ $(function () {
     var client = new WindowsAzure.MobileServiceClient('https://notificador.azure-mobile.net/', 'bbiIcbESnkRJqRxaMlppCYpoxrHQbm31'),
         todoItemTable = client.getTable('todoitem');
 
+    var chat = $.connection.notificadoRHTMLHub;
+    $.connection.hub.start();
+
+    chat.client.broadcastMessage = function (message) {
+        refreshTodoItems();
+        toastr.info(message);
+    };
+    
     // Read current data and rebuild UI.
     // If you plan to generate complex UIs like this, consider using a JavaScript templating library.
     function refreshTodoItems() {
@@ -39,22 +47,26 @@ $(function () {
         }
         textbox.val('').focus();
         evt.preventDefault();
+        chat.server.send('Record Inserted');
     });
 
     // Handle update
     $(document.body).on('change', '.item-text', function () {
         var newText = $(this).val();
         todoItemTable.update({ id: getTodoItemId(this), text: newText }).then(null, handleError);
+        chat.server.send('Record Updated');
     });
 
     $(document.body).on('change', '.item-complete', function () {
         var isComplete = $(this).prop('checked');
         todoItemTable.update({ id: getTodoItemId(this), complete: isComplete }).then(refreshTodoItems, handleError);
+        chat.server.send('Record Updated');
     });
 
     // Handle delete
     $(document.body).on('click', '.item-delete', function () {
         todoItemTable.del({ id: getTodoItemId(this) }).then(refreshTodoItems, handleError);
+        chat.server.send('Record Deleted');
     });
 
     // On initial load, start by fetching the current data
