@@ -31,7 +31,7 @@ namespace NotificadoR.WindowsStore
         // and application key. You're all set to start working with your Mobile Service!
         public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://notificador.azure-mobile.net/",
-            "bbiIcbESnkRJqRxaMlppCYpoxrHQbm31"
+            "DpxvfRquJnLnSoyKfTHNdFsKCavOTX75"
         );
 
         private async void InitNotificationsAsync()

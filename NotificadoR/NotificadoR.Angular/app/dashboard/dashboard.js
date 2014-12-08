@@ -15,7 +15,8 @@
         vm.title = 'Dashboard';
         vm.documentTitle = "";
         vm.documentAbstract = "";
-        var client = new WindowsAzure.MobileServiceClient('https://notificador.azure-mobile.net/', 'bbiIcbESnkRJqRxaMlppCYpoxrHQbm31');
+        //DpxvfRquJnLnSoyKfTHNdFsKCavOTX75
+        var client = new WindowsAzure.MobileServiceClient('https://notificador.azure-mobile.net/', 'DpxvfRquJnLnSoyKfTHNdFsKCavOTX75');
         var todoItemTable = client.getTable('todoitem');
         vm.submit = submit;
 
@@ -49,7 +50,7 @@
         function submit() {
             //console.log(vm.title + vm.abstract);
             log(vm.documentTitle + vm.documentAbstract);
-            todoItemTable.insert({ text: vm.documentTitle, complete: false });
+            todoItemTable.insert({ text: vm.documentTitle, abstract: vm.documentAbstract, complete: false });
             activate();
             return;
         }

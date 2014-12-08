@@ -1,9 +1,9 @@
 ﻿(function () {
     'use strict';
     var controllerId = 'admin';
-    angular.module('app').controller(controllerId, ['common', admin]);
+    angular.module('app').controller(controllerId, ['common', '$location', admin]);
 
-    function admin(common) {
+    function admin(common, $location) {
         var getLogFn = common.logger.getLogFn;
         var log = getLogFn(controllerId);
 
@@ -26,6 +26,7 @@
             var client = new WindowsAzure.MobileServiceClient('https://notificador.azure-mobile.net/', 'bbiIcbESnkRJqRxaMlppCYpoxrHQbm31'),
                 todoItemTable = client.getTable('todoitem');
             todoItemTable.insert({ text: vm.documentTitle, complete: false });
+            $location.path('/dashboard'); 
             return;
         }
     }

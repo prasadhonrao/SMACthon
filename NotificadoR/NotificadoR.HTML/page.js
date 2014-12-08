@@ -1,5 +1,5 @@
 $(function () {
-    var client = new WindowsAzure.MobileServiceClient('https://notificador.azure-mobile.net/', 'bbiIcbESnkRJqRxaMlppCYpoxrHQbm31'),
+    var client = new WindowsAzure.MobileServiceClient('https://notificador.azure-mobile.net/', 'DpxvfRquJnLnSoyKfTHNdFsKCavOTX75'),
         todoItemTable = client.getTable('todoitem');
 
     var chat = $.connection.notificadoRHTMLHub;

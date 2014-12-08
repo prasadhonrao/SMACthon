@@ -22,7 +22,7 @@ namespace NotificadoR.WindowsPhone.Silverlight
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
      "https://notificador.azure-mobile.net/",
-     "bbiIcbESnkRJqRxaMlppCYpoxrHQbm31"
+     "DpxvfRquJnLnSoyKfTHNdFsKCavOTX75"
  );
         public static HttpNotificationChannel CurrentChannel { get; private set; }
 
